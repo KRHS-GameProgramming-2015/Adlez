@@ -2,19 +2,19 @@ import pygame, sys, math, random
 from Wall import *
 
 class Level():
-    def __init__(self, lev):
+    def __init__(self, lev, sizeX, sizeY):
         #self.loadLevel(lev)
-        self.loadAllLevels(lev)
+        self.loadAllLevels(lev, sizeX, sizeY)
     
-    def loadAllLevels(self, lev):
-        for fx in range(3):
-            for fy in range(3):
-                fileName = lev+str(fx+1)+str(fy+1)+".lvl"
+    def loadAllLevels(self, lev, sizeX, sizeY):
+        for fy in range(sizeY):
+            for fx in range(sizeX):
+                fileName = lev+str(fy+1)+str(fx+1)+".lvl"
                 print fileName
                 
-                blockSize = 10
-                screenHeight = 28*blockSize
-                screenWidth = 40*blockSize
+                self.blockSize = 8
+                screenHeight = 28*self.blockSize
+                screenWidth = 40*self.blockSize
                 
                 file = open(fileName, 'r')
                 lines = file.readlines()
@@ -35,10 +35,42 @@ class Level():
                 for y, line in enumerate(lines):
                     for x, c in enumerate(line):
                         if c == '#':
-                            Wall("wall.png", 
-                                 [blockSize*x+blockSize/2+fx*screenWidth,
-                                  blockSize*y+blockSize/2]+fy*screenHeight)
+                            Wall("Block/Block Images/wall.png", 
+                                 [self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
                         
-                """
+            
 if __name__ == "__main__":
-    myLev = Level("Levels/Map0")
+    pygame.init()
+
+    clock = pygame.time.Clock()
+
+    width = 8*40*3
+    height = 8*28*3
+    size = width, height
+
+    bgColor = r,b,g = 255,255,255
+
+    screen = pygame.display.set_mode(size)
+    
+    boundries = pygame.sprite.Group()
+    all = pygame.sprite.OrderedUpdates()
+    
+    Wall.containers = (boundries, all)
+    
+    myLev = Level("Levels/Map0", 3,3)
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                sys.exit()
+        
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        dirty = all.draw(screen)
+        pygame.display.update(dirty)
+        pygame.display.flip()
+        clock.tick(60)
+        
+    
