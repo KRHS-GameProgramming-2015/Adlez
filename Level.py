@@ -65,6 +65,11 @@ if __name__ == "__main__":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    for s in all.sprites():
+                        s.kill()
+                    myLev = Level("Levels/Map0", 3,3)
         
         bgColor = r,g,b
         screen.fill(bgColor)
