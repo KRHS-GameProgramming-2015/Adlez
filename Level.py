@@ -1,5 +1,8 @@
 import pygame, sys, math, random
 from Wall import *
+from Sand import *
+from HardBlock import *
+from SoftBlock import *
 
 class Level():
     def __init__(self, lev, sizeX, sizeY):
@@ -35,8 +38,11 @@ class Level():
                 for y, line in enumerate(lines):
                     for x, c in enumerate(line):
                         if c == '#':
-                            Wall("Block/Block Images/wall.png", 
-                                 [self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                            Wall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
+                        if c == ':':
+                            Sand([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         
@@ -55,9 +61,11 @@ if __name__ == "__main__":
     screen = pygame.display.set_mode(size)
     
     boundries = pygame.sprite.Group()
+    backGrounds = pygame.sprite.Group()
     all = pygame.sprite.OrderedUpdates()
     
-    Wall.containers = (boundries, all)
+    SoftBlock.containers = (boundries, all)
+    HardBlock.containers = (boundries, all)
     
     myLev = Level("Levels/Map0", 3,3)
     
