@@ -1,6 +1,7 @@
 import pygame, sys, math, random
 from Wall import *
 from Sand import *
+from Water import *
 from HardBlock import *
 from SoftBlock import *
 
@@ -43,6 +44,10 @@ class Level():
                                   self.blockSize)
                         if c == ':':
                             Sand([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
+                        if c == '=':
+                            Water([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         
