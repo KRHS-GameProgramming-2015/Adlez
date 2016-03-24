@@ -11,7 +11,3 @@ class SoftBlock(pygame.sprite.Sprite):
     def update(*args):
         pass
         
-    
-        
-        
-            
