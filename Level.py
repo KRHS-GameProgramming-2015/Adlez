@@ -52,7 +52,7 @@ class Level():
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         if c == 'G':
-                            Water([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                            Grass([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         
