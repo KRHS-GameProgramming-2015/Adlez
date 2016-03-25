@@ -55,6 +55,10 @@ class Level():
                             Grass([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
+                        if c == 'c':
+                            CaveFloor([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
                         
             
 if __name__ == "__main__":
