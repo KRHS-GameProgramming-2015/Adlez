@@ -3,6 +3,7 @@ from Wall import *
 from Sand import *
 from Water import *
 from Grass import *
+from CaveFloor import *
 from HardBlock import *
 from SoftBlock import *
 
