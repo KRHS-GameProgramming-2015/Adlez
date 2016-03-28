@@ -67,7 +67,7 @@ class Level():
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         if c == 'R':
-                            CaveWall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                            Rock([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         
