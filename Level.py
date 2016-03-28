@@ -61,6 +61,10 @@ class Level():
                             CaveFloor([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
+                        if c == 'C':
+                            CaveWall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
                         
             
 if __name__ == "__main__":
