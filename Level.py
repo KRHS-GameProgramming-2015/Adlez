@@ -1,6 +1,7 @@
 import pygame, sys, math, random
 from Wall import *
 from Sand import *
+from Rock import *
 from Water import *
 from Grass import *
 from CaveWall import *
@@ -62,6 +63,10 @@ class Level():
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
                         if c == 'C':
+                            CaveWall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize)
+                        if c == 'R':
                             CaveWall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
