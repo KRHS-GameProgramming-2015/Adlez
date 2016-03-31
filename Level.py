@@ -92,7 +92,7 @@ if __name__ == "__main__":
     SoftBlock.containers = (boundries, all)
     HardBlock.containers = (boundries, all)
     
-    myLev = Level("Levels/Map0", 3,3)
+    myLev = Level("Levels/map0", 3,3)
     
     while True:
         for event in pygame.event.get():
@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 if event.key == pygame.K_r:
                     for s in all.sprites():
                         s.kill()
-                    myLev = Level("Levels/Map0", 3,3)
+                    myLev = Level("Levels/map0", 3,3)
         
         bgColor = r,g,b
         screen.fill(bgColor)
