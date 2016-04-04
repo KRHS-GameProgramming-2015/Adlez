@@ -10,9 +10,12 @@ from HardBlock import *
 from SoftBlock import *
 
 class Level():
-    def __init__(self, lev, sizeX, sizeY):
+    def __init__(self, lev, sizeX, sizeY, allLevels = False):
         #self.loadLevel(lev)
-        self.loadAllLevels(lev, sizeX, sizeY)
+        if allLevels:
+            self.loadAllLevels(lev, sizeX, sizeY)
+        else:
+            self.loadLevel(lev)
     
     def loadAllLevels(self, lev, sizeX, sizeY):
         for fy in range(sizeY):
@@ -70,8 +73,61 @@ class Level():
                             Rock([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
-                        
+    
+    def loadLevel(self, lev, sizeX, sizeY):
+        fileName = lev
+        print fileName
+        
+        self.blockSize = 25
+        
+        file = open(fileName, 'r')
+        lines = file.readlines()
+        file.close()
+        
+        newlines = []
+        for line in lines:
+            newline = ""
+            for c in line:
+                if c != '\n':
+                    newline+= c
+            newlines += [newline]
+        lines = newlines
+
+        for line in lines:
+            print line
             
+        for y, line in enumerate(lines):
+            for x, c in enumerate(line):
+                if c == '#':
+                    Wall([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == ':':
+                    Sand([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == '=':
+                    Water([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == 'G':
+                    Grass([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == 'c':
+                    CaveFloor([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == 'C':
+                    CaveWall([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                if c == 'R':
+                    Rock([self.blockSize*x+self.blockSize/2+fx,
+                          self.blockSize*y+self.blockSize/2+fy],
+                          self.blockSize)
+                
+    
 if __name__ == "__main__":
     pygame.init()
 
@@ -92,7 +148,7 @@ if __name__ == "__main__":
     SoftBlock.containers = (boundries, all)
     HardBlock.containers = (boundries, all)
     
-    myLev = Level("Levels/map0", 3,3)
+    myLev = Level("Levels/map0", 3,3, True)
     
     while True:
         for event in pygame.event.get():
