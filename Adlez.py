@@ -15,26 +15,31 @@ bgColor = r,b,g = 0,0,0
 
 screen = pygame.display.set_mode(size)
 
-mode = "start"
+mode = "game"
 
 while True:
-    while mode == "start":
+    while mode == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
-                    mode = "pvp"
+                    mode = "continue"
                 if event.key == pygame.K_2:
-                    mode = "practice"
+                    mode = "start"
+                if event.key == pygame.K_3:
+                    mode = "how to play"
+                if event.key == pygame.K_q:
+                    mode = "quit"
                     
-        bg = pygame.image.load("Pics/menubackground.png")
-        bgrect = bg.get_rect(center = [width/2,height/2])
-        option = pygame.image.load("Pics/Gamemodeimageoptions.png")
-        optionrect = option.get_rect(center = [width/2, 3*height/4])
-        
         screen.fill(bgColor)
-        screen.blit(bg, bgrect)
-        screen.blit(option, optionrect)
         pygame.display.flip()
         clock.tick(60)
+
+    while mode == "continue":
+
+    while mode == "start":
+        
+    while mode == "how to play":
+        
+    while mode == "quit":
