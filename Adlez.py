@@ -11,7 +11,7 @@ width = 960
 height = 672
 size = width, height
 
-bgColor = r,b,g = 0,0,0
+bgColor = r,b,g = 255,255,255
 
 screen = pygame.display.set_mode(size)
 
@@ -30,7 +30,11 @@ while True:
                 if event.key == pygame.K_q:
                     mode = "quit"
                     
+        bg = pygame.image.load("Resources/mainmenu.png")
+        bgrect = bg.get_rect(center = [width/2,height/2])
+        
         screen.fill(bgColor)
+        screen.blit(bg, bgrect)
         pygame.display.flip()
         clock.tick(60)
 
@@ -63,8 +67,22 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-                
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    mode = "start"    
             
+        bg = pygame.image.load("Resources/howtoplay.png")
+        bgrect = bg.get_rect(center = [width/2,height/1.9])
         
+        screen.fill(bgColor)
+        screen.blit(bg, bgrect)
+        pygame.display.flip()
+        clock.tick(60)
         
     while mode == "quit":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    
