@@ -85,4 +85,4 @@ while True:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                    
+                    sys.exit()
