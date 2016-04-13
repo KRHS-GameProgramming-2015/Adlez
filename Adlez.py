@@ -7,15 +7,31 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-width = 960
-height = 672
+width = 1000
+height = 700
 size = width, height
 
 bgColor = r,b,g = 255,255,255
 
 screen = pygame.display.set_mode(size)
 
-mode = "game"
+mode = "test"
+
+boundries = pygame.sprite.Group()
+backGrounds = pygame.sprite.Group()
+all = pygame.sprite.OrderedUpdates()
+
+SoftBlock.containers = (boundries, all)
+HardBlock.containers = (boundries, all)
+
+def loadNewLev(direction):
+    if direction == "up":
+        if levy >1:
+            levy-=1
+    for s in all.sprites():
+        s.kill()
+    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
+    level=Level(levFile) 
 
 while True:
     while mode == "game":
@@ -37,31 +53,42 @@ while True:
         screen.blit(bg, bgrect)
         pygame.display.flip()
         clock.tick(60)
-
-    while mode == "start":
+        
+    levLayer =0
+    levx = 3
+    levy = 3
+    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
+    level=Level(levFile)
+    
+    while mode == "test":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
             
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    player.go("up")
+                    loadNewLev("up")
                 elif event.key == pygame.K_s:
-                    player.go("down")
+                    if levy <3:
+                        levy+=1
+                        loadNewLev()
                 elif event.key == pygame.K_a:
-                    player.go("left")
+                    if levx >1:
+                        levx-=1
+                        loadNewLev()
                 elif event.key == pygame.K_d:
-                    player.go("right")
+                    if levx <3:
+                        levx+=1
+                        loadNewLev()
                 
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_w:
-                    player.go("stop up")
-                elif event.key == pygame.K_s:
-                    player.go("stop down")
-                elif event.key == pygame.K_a:
-                    player.go("stop left")
-                elif event.key == pygame.K_d:
-                    player.go("stop right")
+        print len(all.sprites())
+        
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        dirty = all.draw(screen)
+        pygame.display.update(dirty)
+        pygame.display.flip()
+        clock.tick(60)
                 
     while mode == "how to play":
         for event in pygame.event.get():

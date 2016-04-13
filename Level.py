@@ -10,7 +10,7 @@ from HardBlock import *
 from SoftBlock import *
 
 class Level():
-    def __init__(self, lev, sizeX, sizeY, allLevels = False):
+    def __init__(self, lev, sizeX=0, sizeY=0, allLevels = False):
         #self.loadLevel(lev)
         if allLevels:
             self.loadAllLevels(lev, sizeX, sizeY)
@@ -74,7 +74,7 @@ class Level():
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
     
-    def loadLevel(self, lev, sizeX, sizeY):
+    def loadLevel(self, lev):
         fileName = lev
         print fileName
         
@@ -99,32 +99,32 @@ class Level():
         for y, line in enumerate(lines):
             for x, c in enumerate(line):
                 if c == '#':
-                    Wall([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    Wall([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == ':':
-                    Sand([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    Sand([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == '=':
-                    Water([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    Water([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == 'G':
-                    Grass([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    Grass([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == 'c':
-                    CaveFloor([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    CaveFloor([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == 'C':
-                    CaveWall([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    CaveWall([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 if c == 'R':
-                    Rock([self.blockSize*x+self.blockSize/2+fx,
-                          self.blockSize*y+self.blockSize/2+fy],
+                    Rock([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 
     
