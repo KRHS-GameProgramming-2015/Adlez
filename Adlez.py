@@ -69,7 +69,7 @@ while True:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    mode = "start"    
+                    mode = "game"    
             
         bg = pygame.image.load("Resources/howtoplay.png")
         bgrect = bg.get_rect(center = [width/2,height/1.9])
