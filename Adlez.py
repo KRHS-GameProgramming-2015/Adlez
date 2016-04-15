@@ -32,15 +32,15 @@ def loadNewLev(direction, levx, levy):
     if direction == "up":
         if levy >1:
             levy-=1
+    elif direction == "down":
         if levy <3:
             levy+=1
-            loadNewLev("down")
+    elif direction == "left":
         if levx >1:
             levx-=1
-            loadNewLev("left")
+    elif direction == "right":
         if levx <3:
             levx+=1
-            loadNewLev("right")
     for s in all.sprites():
         s.kill()
     levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
