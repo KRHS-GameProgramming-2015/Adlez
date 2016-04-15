@@ -1,15 +1,21 @@
 import sys, pygame, math
 
-class Manpac(pygame.sprite.Sprite):
+class NPC(pygame.sprite.Sprite):
     def __init__(self, maxSpeed, pos = [0,0]):
         pygame.sprite.Sprite.__init__(self, self.containers)
-        self.rightImages = [pygame.transform.scale(pygame.image.load(
+        #Images From: URL: http://opengameart.org/content/classic-knight-animated
+        playerSize = [25,25]
+        self.rightImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkRight0.png"), playerSize)
+                            ]
                            
-        self.leftImages = [pygame.transform.scale(pygame.image.load(
+        self.leftImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkLeft0.png"), playerSize)
+                            ]
                            
-        self.upImages = [pygame.transform.scale(pygame.image.load(
+        self.upImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkUp0.png"), playerSize)
+                            ]
         
-        self.downImages = [pygame.transform.scale(pygame.image.load(
+        self.downImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkDown0.png"), playerSize)
+                            ]
         
         
         self.images = self.rightImages
@@ -18,7 +24,6 @@ class Manpac(pygame.sprite.Sprite):
         
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect()
-        self.radius = self.rect.width/2 - 2
         
         self.xDirection = "right"
         self.yDirection = "none"

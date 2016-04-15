@@ -15,14 +15,18 @@ bgColor = r,b,g = 255,255,255
 
 screen = pygame.display.set_mode(size)
 
-mode = "game"
+mode = "m"
 
 boundries = pygame.sprite.Group()
 backGrounds = pygame.sprite.Group()
+people = pygame.sprite.Group()
+players = pygame.sprite.Group()
 all = pygame.sprite.OrderedUpdates()
 
 SoftBlock.containers = (boundries, all)
 HardBlock.containers = (boundries, all)
+NPC.containers = (people, all)
+Player.containers = (people, players, all)
 
 levLayer =0
 levx = 3
@@ -48,7 +52,7 @@ def loadNewLev(direction, levx, levy):
     return levx, levy
 
 while True:
-    while mode == "game":
+    while mode == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
@@ -68,33 +72,6 @@ while True:
         pygame.display.flip()
         clock.tick(60)
         
-    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
-    level=Level(levFile)
-    
-    while mode == "start":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT: 
-                sys.exit()
-            
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w:
-                    levx, levy = loadNewLev("up", levx, levy)
-                elif event.key == pygame.K_s:
-                    levx, levy = loadNewLev("down", levx, levy)
-                elif event.key == pygame.K_a:
-                    levx, levy = loadNewLev("left", levx, levy)
-                elif event.key == pygame.K_d:
-                    levx, levy = loadNewLev("right", levx, levy)
-                
-        print len(all.sprites())
-        
-        bgColor = r,g,b
-        screen.fill(bgColor)
-        dirty = all.draw(screen)
-        pygame.display.update(dirty)
-        pygame.display.flip()
-        clock.tick(60)
-                
     while mode == "how to play":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
@@ -118,3 +95,56 @@ while True:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
+
+    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
+    level=Level(levFile)
+    player = Player([5,5], [900,500])
+    
+    while mode == "test":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                sys.exit()
+            
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    levx, levy = loadNewLev("up", levx, levy)
+                elif event.key == pygame.K_s:
+                    levx, levy = loadNewLev("down", levx, levy)
+                elif event.key == pygame.K_a:
+                    levx, levy = loadNewLev("left", levx, levy)
+                elif event.key == pygame.K_d:
+                    levx, levy = loadNewLev("right", levx, levy)
+                
+        print len(all.sprites())
+        
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        dirty = all.draw(screen)
+        pygame.display.update(dirty)
+        pygame.display.flip()
+        clock.tick(60)
+                
+    while mode == "game":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                sys.exit()
+            
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    levx, levy = loadNewLev("up", levx, levy)
+                elif event.key == pygame.K_s:
+                    levx, levy = loadNewLev("down", levx, levy)
+                elif event.key == pygame.K_a:
+                    levx, levy = loadNewLev("left", levx, levy)
+                elif event.key == pygame.K_d:
+                    levx, levy = loadNewLev("right", levx, levy)
+                
+        print len(all.sprites())
+        
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        dirty = all.draw(screen)
+        pygame.display.update(dirty)
+        pygame.display.flip()
+        clock.tick(60)
+    
