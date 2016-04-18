@@ -15,7 +15,7 @@ bgColor = r,b,g = 255,255,255
 
 screen = pygame.display.set_mode(size)
 
-mode = "m"
+mode = "menu"
 
 boundries = pygame.sprite.Group()
 backGrounds = pygame.sprite.Group()
@@ -58,7 +58,7 @@ while True:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
-                    mode = "start"
+                    mode = "test"
                 if event.key == pygame.K_2:
                     mode = "how to play"
                 if event.key == pygame.K_q:
