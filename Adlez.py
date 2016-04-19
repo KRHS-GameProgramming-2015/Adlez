@@ -4,6 +4,7 @@ from Player import *
 from NPC import *
 from Menu import *
 pygame.init()
+#HAI PERSONS
 
 clock = pygame.time.Clock()
 
