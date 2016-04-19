@@ -34,6 +34,7 @@ def loadNewLev(direction, levx, levy):
             levy-=1
         if levy <3:
             levy+=1
+            
             loadNewLev("down")
         if levx >1:
             levx-=1
