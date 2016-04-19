@@ -1,6 +1,6 @@
 Copyrights
 
-File: NPC\NPC Images\Ye_Oldy_Knight_Guy.png
+File: Player\Player Images\Ye_Oldy_Knight_Guy.png
 Author: Disthron
 URL: http://opengameart.org/content/classic-knight-animated
 Lisence: Public Domain
