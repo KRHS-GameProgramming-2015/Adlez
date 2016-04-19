@@ -33,7 +33,7 @@ levLayer =0
 levx = 3
 levy = 3
 
-def loadNewLev(direction, levx, levy):
+def loadNewLev(directon, levx, levy):
     if direction == "up":
         if levy >1:
             levy-=1
@@ -59,7 +59,7 @@ while True:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
-                    mode = "test"
+                    mode = "game"
                 if event.key == pygame.K_2:
                     mode = "how to play"
                 if event.key == pygame.K_q:
