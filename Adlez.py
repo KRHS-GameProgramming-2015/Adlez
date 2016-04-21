@@ -33,7 +33,7 @@ levLayer =0
 levx = 3
 levy = 3
 
-def loadNewLev(directon, levx, levy):
+def loadNewLev(direction, levx, levy):
     if direction == "up":
         if levy >1:
             levy-=1
