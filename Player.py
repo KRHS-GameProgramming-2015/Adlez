@@ -7,16 +7,16 @@ class Player(pygame.sprite.Sprite):
         #Images From: URL: http://opengameart.org/content/classic-knight-animated
         
         playerSize = [25,25]
-        self.rightImages = [pygame.transform.scale(pygame.image.load("Player\Player Images\walkRight0.png"), playerSize)
+        self.rightImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight0.png"), playerSize)
                             ]
                            
-        self.leftImages = [pygame.transform.scale(pygame.image.load("Player\Player Images\walkLeft0.png"), playerSize)
+        self.leftImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft0.png"), playerSize)
                             ]
                            
-        self.upImages = [pygame.transform.scale(pygame.image.load("Player\Player Images\walkUp0.png"), playerSize)
+        self.upImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkUp0.png"), playerSize)
                             ]
         
-        self.downImages = [pygame.transform.scale(pygame.image.load("Player\Player Images\walkDown0.png"), playerSize)
+        self.downImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkDown0.png"), playerSize)
                             ]
         
         self.images = self.rightImages
