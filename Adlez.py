@@ -128,17 +128,26 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-            
+                
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    levx, levy = loadNewLev("up", levx, levy)
+                    player.go("up")
                 elif event.key == pygame.K_s:
-                    levx, levy = loadNewLev("down", levx, levy)
+                    player.go("down")
                 elif event.key == pygame.K_a:
-                    levx, levy = loadNewLev("left", levx, levy)
+                    player.go("left")
                 elif event.key == pygame.K_d:
-                    levx, levy = loadNewLev("right", levx, levy)
-                
+                    player.go("right")
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_w:
+                    player.go("stop up")
+                elif event.key == pygame.K_s:
+                    player.go("stop down")
+                elif event.key == pygame.K_a:
+                    player.go("stop left")
+                elif event.key == pygame.K_d:
+                    player.go("stop right")
+
         print len(all.sprites())
         
         bgColor = r,g,b
