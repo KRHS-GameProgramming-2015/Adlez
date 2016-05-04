@@ -148,6 +148,7 @@ while True:
                 elif event.key == pygame.K_d:
                     player.go("stop right")
 
+        all.update(size)
         print len(all.sprites())
         
         bgColor = r,g,b
