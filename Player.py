@@ -6,25 +6,25 @@ class Player(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self, self.containers)
         #Images From: URL: http://opengameart.org/content/classic-knight-animated
         
-        self.rightImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight0.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight1.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight2.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight3.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight4.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkRight5.png"), [25,25])]
+        self.rightImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkright0.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright1.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright2.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright3.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright4.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright5.png"), [25,25])]
                            
-        self.leftImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft0.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft1.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft2.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft3.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft4.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkLeft5.png"), [25,25])]
+        self.leftImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft0.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft1.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft2.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft3.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft4.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkleft5.png"), [25,25])]
                            
-        self.upImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkUp0.png"), [25,25]),
-                         pygame.transform.scale(pygame.image.load("Player/Player Images/walkUp1.png"), [25,25])]
+        self.upImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkup0.png"), [25,25]),
+                         pygame.transform.scale(pygame.image.load("Player/Player Images/walkup1.png"), [25,25])]
         
-        self.downImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkDown0.png"), [25,25]),
-                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkDown1.png"), [25,25])]
+        self.downImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkdown0.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Player/Player Images/walkdown1.png"), [25,25])]
         
         self.images = self.rightImages
         self.frame = 0
