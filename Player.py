@@ -44,7 +44,7 @@ class Player(pygame.sprite.Sprite):
         self.maxSpeedy = maxSpeed[1]
         
         self.timer = 0
-        self.timerMax = .25* 60
+        self.timerMax = .10* 60
         
         self.didBounceX = False
         self.didBounceY = False
@@ -100,6 +100,7 @@ class Player(pygame.sprite.Sprite):
             self.timer += 1
         else:
             self.timer = 0
+            print self.frame, self.maxFrame
             if self.frame < self.maxFrame:
                 self.frame += 1
             else:
@@ -117,15 +118,19 @@ class Player(pygame.sprite.Sprite):
             self.yDirection = "up"
             self.speedy = -self.maxSpeedy
             self.images = self.upImages
+            self.frame = 0
         elif direction == "down":
             self.speedy = self.maxSpeedy
             self.images = self.downImages
+            self.frame = 0
         if direction == "right":
             self.speedx = self.maxSpeedx
             self.images = self.rightImages
+            self.frame = 0
         elif direction == "left":
             self.speedx = -self.maxSpeedx
             self.images = self.leftImages
+            self.frame = 0
             
             
         if direction == "stop up":
@@ -137,6 +142,10 @@ class Player(pygame.sprite.Sprite):
             self.speedx = 0
         elif direction == "stop left":
             self.speedx = 0
+        
+        print self.maxFrame
+        self.maxFrame = len(self.images)-1    
+        
             
     def distanceTo(self, pt):
         x1 = self.rect.center[0]

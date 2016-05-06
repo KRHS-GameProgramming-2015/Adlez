@@ -149,7 +149,7 @@ while True:
                     player.go("stop right")
 
         all.update(size)
-        print len(all.sprites())
+        #print len(all.sprites())
         
         bgColor = r,g,b
         screen.fill(bgColor)
