@@ -23,7 +23,7 @@ people = pygame.sprite.Group()
 players = pygame.sprite.Group()
 all = pygame.sprite.OrderedUpdates()
 
-SoftBlock.containers = (boundries, all)
+SoftBlock.containers = (backGrounds, all)
 HardBlock.containers = (boundries, all)
 NPC.containers = (people, all)
 Player.containers = (people, players, all)
@@ -130,22 +130,22 @@ while True:
                 sys.exit()
                 
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w:
+                if event.key == pygame.K_w or event.key == pygame.K_UP:
                     player.go("up")
-                elif event.key == pygame.K_s:
+                elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     player.go("down")
-                elif event.key == pygame.K_a:
+                elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     player.go("left")
-                elif event.key == pygame.K_d:
+                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     player.go("right")
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_w:
+                if event.key == pygame.K_w or event.key == pygame.K_UP:
                     player.go("stop up")
-                elif event.key == pygame.K_s:
+                elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     player.go("stop down")
-                elif event.key == pygame.K_a:
+                elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     player.go("stop left")
-                elif event.key == pygame.K_d:
+                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     player.go("stop right")
 
         all.update(size)
@@ -165,11 +165,11 @@ while True:
             levx, levy = loadNewLev("up", levx, levy)
             player = Player([5,5], [player.rect.center[0], size[1]])
             
-        #playersHitsWalls = pygame.sprite.groupcollide(players, walls, False, False)
+        playersHitsBoundries = pygame.sprite.groupcollide(players, boundries, False, False)
         
-        #for p in playersHitsWalls:
-            #for wall in playersHitsWalls[p]:
-                #p.collideWall(wall)
+        for p in playersHitsBoundries:
+            for boundry in playersHitsBoundries[p]:
+                p.collideHardblock(boundry)
         
         bgColor = r,g,b
         screen.fill(bgColor)
