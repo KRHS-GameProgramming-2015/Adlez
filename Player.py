@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
         self.maxFrame = len(self.images)-1
         
         self.image = self.images[self.frame]
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect(center = pos)
         
         self.xDirection = "right"
         self.yDirection = "none"
@@ -49,7 +49,6 @@ class Player(pygame.sprite.Sprite):
         self.didBounceX = False
         self.didBounceY = False
         
-        self.rect = self.rect.move(pos)
         
         self.living = True
         self.lives = 3
@@ -67,7 +66,6 @@ class Player(pygame.sprite.Sprite):
         size = args[1]
         self.move()
         self.animate()
-        self.collideScreen(size)
     
     def collideObject(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
@@ -76,15 +74,6 @@ class Player(pygame.sprite.Sprite):
                     return True
         return False
     
-    def collideScreen(self, size):
-        width = size[0]
-        height = size[1]
-        
-        if not self.didBounceX:
-            if self.rect.center[0] < -1: 
-                self.rect.center = (width, self.rect.center[1])
-            elif self.rect.center[0] > width+1:
-                self.rect.center = (0, self.rect.center[1])
                 
     def collideHardblock(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
