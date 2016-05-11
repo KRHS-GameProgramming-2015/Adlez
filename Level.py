@@ -61,6 +61,10 @@ class Level():
                             Grass([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
+                        if c == 'g':
+                            BigGrass([self.blockSize*x+self.blockSize/2+fx*screenWidth,
+                                  self.blockSize*y+self.blockSize/2+fy*screenHeight],
+                                  self.blockSize*5)
                         if c == 'c':
                             CaveFloor([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
@@ -114,6 +118,10 @@ class Level():
                     Grass([self.blockSize*x+self.blockSize/2,
                           self.blockSize*y+self.blockSize/2],
                           self.blockSize)
+                if c == 'g':
+                    BigGrass([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
+                          self.blockSize*5)
                 if c == 'c':
                     CaveFloor([self.blockSize*x+self.blockSize/2,
                           self.blockSize*y+self.blockSize/2],
