@@ -33,8 +33,7 @@ class Player(pygame.sprite.Sprite):
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = pos)
         
-        self.xDirection = "right"
-        self.yDirection = "none"
+        self.direction = "stop right"
         
         self.speedx = 0
         self.speedy = 0
@@ -85,7 +84,9 @@ class Player(pygame.sprite.Sprite):
                 self.speedy = 0
                  
     def animate(self):
-        if self.timer < self.timerMax:
+        if self.direction[0:4] == "stop":
+            self.frame = 0
+        elif self.timer < self.timerMax:
             self.timer += 1
         else:
             self.timer = 0
@@ -103,21 +104,25 @@ class Player(pygame.sprite.Sprite):
         self.didBounceY = False 
                      
     def go(self, direction):
+        self.direction = direction
         if direction == "up":
-            self.yDirection = "up"
             self.speedy = -self.maxSpeedy
+            self.speedx = 0
             self.images = self.upImages
             self.frame = 0
         elif direction == "down":
             self.speedy = self.maxSpeedy
+            self.speedx = 0
             self.images = self.downImages
             self.frame = 0
-        if direction == "right":
+        elif direction == "right":
             self.speedx = self.maxSpeedx
+            self.speedy = 0
             self.images = self.rightImages
             self.frame = 0
         elif direction == "left":
             self.speedx = -self.maxSpeedx
+            self.speedy = 0
             self.images = self.leftImages
             self.frame = 0
             
