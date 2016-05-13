@@ -1,4 +1,4 @@
-import pygame, sys, math, random
+import pygame, sys, math, random, time
 from Wall import *
 from Sand import *
 from Rock import *
@@ -12,6 +12,8 @@ from SoftBlock import *
 class Level():
     def __init__(self, lev, sizeX=0, sizeY=0, allLevels = False):
         #self.loadLevel(lev)
+        self.start = time.time()
+
         if allLevels:
             self.loadAllLevels(lev, sizeX, sizeY)
         else:
@@ -69,6 +71,10 @@ class Level():
                             CaveFloor([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
                                   self.blockSize)
+                        if c == 'f':
+                            BigCaveFloor([self.blockSize*x+self.blockSize/2,
+                                self.blockSize*y+self.blockSize/2],
+                                  self.blockSize*5)
                         if c == 'C':
                             CaveWall([self.blockSize*x+self.blockSize/2+fx*screenWidth,
                                   self.blockSize*y+self.blockSize/2+fy*screenHeight],
@@ -79,6 +85,9 @@ class Level():
                                   self.blockSize)
     
     def loadLevel(self, lev):
+        now = time.time() - self.start
+        self.start = time.time()
+        print "before start ", now
         fileName = lev
         print fileName
         
@@ -97,8 +106,8 @@ class Level():
             newlines += [newline]
         lines = newlines
 
-        for line in lines:
-            print line
+        #for line in lines:
+            #print line
             
         for y, line in enumerate(lines):
             for x, c in enumerate(line):
@@ -126,6 +135,10 @@ class Level():
                     CaveFloor([self.blockSize*x+self.blockSize/2,
                           self.blockSize*y+self.blockSize/2],
                           self.blockSize)
+                if c == 'f':
+                    BigCaveFloor([self.blockSize*x+self.blockSize/2,
+                          self.blockSize*y+self.blockSize/2],
+                          self.blockSize*5)
                 if c == 'C':
                     CaveWall([self.blockSize*x+self.blockSize/2,
                           self.blockSize*y+self.blockSize/2],
@@ -135,7 +148,9 @@ class Level():
                           self.blockSize*y+self.blockSize/2],
                           self.blockSize)
                 
-    
+        now = time.time() - self.start
+        self.start = time.time()
+        print "after start ", now
 if __name__ == "__main__":
     pygame.init()
 

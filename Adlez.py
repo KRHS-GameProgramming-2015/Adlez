@@ -1,4 +1,4 @@
-import sys, pygame, math, random
+import sys, pygame, math, random, time
 from Level import *
 from Player import *
 from NPC import *
@@ -31,6 +31,8 @@ Player.containers = (people, players, all)
 levLayer =0
 levx = 3
 levy = 3
+
+start = time.time()
 
 def loadNewLev(direction, levx, levy):
     if direction == "up":
@@ -95,10 +97,13 @@ while True:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-
+    
+    
     levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
     level=Level(levFile)
     player = Player([5,5], [900,500])
+    
+    
     
     while mode == "test":
         for event in pygame.event.get():
@@ -115,7 +120,7 @@ while True:
                 elif event.key == pygame.K_d:
                     levx, levy = loadNewLev("right", levx, levy)
                 
-        print len(all.sprites())
+        #print len(all.sprites())
         
         bgColor = r,g,b
         screen.fill(bgColor)

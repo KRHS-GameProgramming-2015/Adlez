@@ -90,7 +90,7 @@ class Player(pygame.sprite.Sprite):
             self.timer += 1
         else:
             self.timer = 0
-            print self.frame, self.maxFrame
+            #print self.frame, self.maxFrame
             if self.frame < self.maxFrame:
                 self.frame += 1
             else:
@@ -137,7 +137,7 @@ class Player(pygame.sprite.Sprite):
         elif direction == "stop left":
             self.speedx = 0
         
-        print self.maxFrame
+        #print self.maxFrame
         self.maxFrame = len(self.images)-1    
         
             
