@@ -1,31 +1,31 @@
 ########################################
 ########################################
 ########################################
-##############cccccc####################
-############cccccccccccccccccccccccc####
-############cccccccccccccccccccccccc####
-###########ccccccccccccccccccccccccc####
-#########ccccccccccccccccccccccccccc####
-########cccccccccccccccccccccccccccc####
-########cccccccccccccccccccccccccccc####   
-cccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccc
-####cccccccccccccccccccccccccccccccccc##
-#####ccccccccccccccccccccccccccccccccc##
-######cccccccccccccccccccccccccccccccc##
-######cccccccccccccccccccccccccccccccc##
-#######cccccccccccccccccccccccccccccc###
-########cccccccccccccccccccccccccccc####
-#########ccccccccccccccccccccccccc######
-##########cccccccccccccccccccccc########
-#################cccccc#################
-#################cccccc#################
-#################cccccc#################
-#################cccccc#################
+##############c     ####################
+############ccc     c               ####
+############ccc  f  c               ####
+###########cccc     c  f    f    f  ####
+#########cccccc     c               ####
+########ccccccc     c               ####
+########cc          cc          cccc####   
+cccccccccc       f  cc          cccccccc
+            f       cc  f    f  ccc     
+                    cc          ccc     
+  f    f       cc               ccc  f  
+          cc                    ccc     
+          cc       f            ccc     
+####ccc       f         f    f       c##
+#####cc                              c##
+######c  f                        f  c##
+######c                              c##
+#######            f                 ###
+########cccc  f         f    f  cccc####
+#########ccc                    cc######
+##########cc                    ########
+#################     c#################
+#################  f  c#################
+#################     c#################
+#################     c#################
 
 
 
