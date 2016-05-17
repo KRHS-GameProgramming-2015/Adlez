@@ -2,27 +2,27 @@
 ######     cccc##ccccccccccccccccccccc##
 ######          ##cccccccccccccccccccc##
 ######  f       c#########cccccccccccc## 
-#####c       f  ccccccccc###############
-####cc          cccccccccccccccccccccc##
-####cc          cccccccccccccccccccccc##
-####cc     ccccccccccccccccccccccccccc##
-####cc  f  ccccccccccccccccccccccccccc## 
-###ccc     ccccccccccccccccccccccccccc##
-     c     ccccccccccccccccccccccccccccc
-     c     ccccccccccccccccccccccccccccc
-  f  c     ccccccccccccccccccccccccccccc
-     c  f  ccccccccccccccccccccccccccccc  
-     c     ccccccccccccccccccccccccccccc
-cccccc     ccccccccccccccccccccccccccccc 
-####cc     ccccccccccccccccccccccccccc##
-#####c     ccccccccccccccccccccccccccc##
-#####c  f  cccccccccccccccccccccccccc###
-####cc     cccccccccccccccccccccccccc### 
-####cc     cccccccccccccccccccccccccc###
-####ccccccccccccccccccccccccccccccccc###
-####ccccccccccccccccccccccccccccccccc###
-########ccccccccccccccccccccccccccccc###
-##########cccccccccccccccccccccccccc####
+#####c       f       cccc###############
+####cc                              cc##
+####cc            f                 cc##
+####cc                 f    f    f  cc##
+####cc  f                           cc## 
+###ccc       f                      cc##
+     c                              cccc
+     c            f                 cccc
+  f  c                 f    f    f  cccc
+     c  f                           cccc  
+     c       f                      cccc
+cccccc                              cccc 
+####cc            f                 cc##
+#####c                 f    f    f  cc##
+#####c  f                           c###
+####cc       f                      c### 
+####cc                              c###
+####ccccccc       f                 c###
+####cccccccccccc       f    f    f  c###
+########cccccccc                    c###
+##########ccccccccccc               ####
 ###########cccccccccccccccc#############
 #################cccccc#################
 #################cccccc#################
