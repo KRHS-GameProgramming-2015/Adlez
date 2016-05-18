@@ -9,13 +9,13 @@ class NPC(pygame.sprite.Sprite):
                             ]
                            
         self.leftImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkLeft0.png"), playerSize)
-                            ]
+                           ]
                            
         self.upImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkUp0.png"), playerSize)
-                            ]
+                         ]
         
         self.downImages = [pygame.transform.scale(pygame.image.load("NPC\NPC Images\walkDown0.png"), playerSize)
-                            ]
+                           ]
         
         
         self.images = self.rightImages
@@ -104,32 +104,6 @@ class NPC(pygame.sprite.Sprite):
         self.didBounceX = False
         self.didBounceY = False 
                      
-    def go(self, direction):
-        if direction == "up":
-            self.yDirection = "up"
-            self.speedy = -self.maxSpeedy
-            self.images = self.upImages
-        elif direction == "down":
-            self.speedy = self.maxSpeedy
-            self.images = self.downImages
-        if direction == "right":
-            self.speedx = self.maxSpeedx
-            self.images = self.rightImages
-        elif direction == "left":
-            self.speedx = -self.maxSpeedx
-            self.images = self.leftImages
-            
-            
-        if direction == "stop up":
-            self.speedy = 0
-            self.yDirection = "none"
-        elif direction == "stop down":
-            self.speedy = 0
-        if direction == "stop right":
-            self.speedx = 0
-        elif direction == "stop left":
-            self.speedx = 0
-            
     def distanceTo(self, pt):
         x1 = self.rect.center[0]
         y1 = self.rect.center[1]
