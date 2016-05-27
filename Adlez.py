@@ -20,12 +20,14 @@ mode = "menu"
 boundries = pygame.sprite.Group()
 backGrounds = pygame.sprite.Group()
 people = pygame.sprite.Group()
+items = pygame.sprite.Group()
 players = pygame.sprite.Group()
 all = pygame.sprite.OrderedUpdates()
 
 SoftBlock.containers = (backGrounds, all)
 HardBlock.containers = (boundries, all)
 NPC.containers = (people, all)
+Item.containers = (items, all)
 Player.containers = (people, players, all)
 
 levLayer =0
@@ -177,6 +179,12 @@ while True:
         for p in playersHitsBoundries:
             for boundry in playersHitsBoundries[p]:
                 p.collideHardblock(boundry)
+                
+        playersHitsextras = pygame.sprite.groupcollide(players, extras, False, False)
+        
+        for p in playersHitsextras:
+            for extra in playersHitsextras[p]:
+                score.increase(extra.value)
         
         bgColor = r,g,b
         screen.fill(bgColor)
