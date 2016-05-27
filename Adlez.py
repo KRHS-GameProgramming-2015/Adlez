@@ -3,6 +3,7 @@ from Level import *
 from Player import *
 from NPC import *
 from Menu import *
+from Item import *
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -180,12 +181,11 @@ while True:
             for boundry in playersHitsBoundries[p]:
                 p.collideHardblock(boundry)
                 
-        playersHitsextras = pygame.sprite.groupcollide(players, extras, False, False)
+        #playersHitsItems = pygame.sprite.groupcollide(players, items, False, False)
         
-        for p in playersHitsextras:
-            for extra in playersHitsextras[p]:
-                score.increase(extra.value)
-        
+        #for p in playersHitsitems:
+            #for item in playersHitsitems[p]:
+                
         bgColor = r,g,b
         screen.fill(bgColor)
         dirty = all.draw(screen)
