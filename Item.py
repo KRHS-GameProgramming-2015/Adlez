@@ -2,30 +2,24 @@ import sys, pygame, math
 #From Manpac V2
 
 class Item(pygame.sprite.Sprite):
-    def __init__(self, pos=[0,0], blockSize = 50):
+    def __init__(self, image, pos=[0,0], blockSize = 25):
         pygame.sprite.Sprite.__init__(self, self.containers)
-        self.image = pygame.image.load("Items/Items Images/healthpotion.png")
-        self.image = pygame.transform.scale(self.image, [blockSize/2,blockSize/2])
-        self.rect = self.image.get_rect(center = pos)
-        self.radius = self.rect.width/2 - 2
+        
+        self.image = pygame.transform.scale(pygame.image.load(image), [blockSize,blockSize])
+        self.rect = self.images[0].get_rect(center = pos)
+
         self.living = True
-        self.value = 2
         self.kind = "normal"
         
     def update(*args):
         pass
         
-    def animate(self):
-        if self.timer < self.timerMax:
-            self.timer += 1
-        else:
-            self.timer = 0
-            if self.frame < self.maxFrame:
-                self.frame += 1
-            else:
-                self.frame = 0
-        self.image = self.images[self.frame]
-    
-    def update(*args):
-        self = args[0]
-        self.animate()
+class Coin(Item):
+    def __init__(self, pos, blockSize):
+        Item.__init__(self, "Items/Items Images/coin.png", pos, blockSize)
+        self.kind = "coin"
+        
+class HP(Item):
+    def __init__(self, pos, blockSize):
+        Item.__init__(self, "Items/Items Images/healthpotion.png", pos, blockSize)
+        self.kind = "healthpotion"
