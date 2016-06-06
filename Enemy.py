@@ -3,12 +3,16 @@ from NPC import *
 #From Manpac V2
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, name, pos=[0,0]):
+    def __init__(self, maxSpeed, pos = [0,0]):
         pygame.sprite.Sprite.__init__(self, self.containers)
-        if name == "purple":
-            self.imageliving = pygame.image.load("Ghost/purple.png")
-            self.imageliving = pygame.transform.scale(self.imageliving,[45,45])
-            self.maxSpeed = 3
+        #Images From: URL: http://opengameart.org/content/ye-oldy-armored-knife-guy-animated
+        
+        self.rightImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/YeOldyKnifeGuy0.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright1.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright2.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright3.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright4.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright5.png"), [25,25])]
         elif name == "blue":
             self.imageliving = pygame.image.load("Ghost/blue.png")
             self.imageliving = pygame.transform.scale(self.imageliving,[45,45])
