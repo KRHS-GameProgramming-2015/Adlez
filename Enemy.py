@@ -7,12 +7,25 @@ class Enemy(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self, self.containers)
         #Images From: URL: http://opengameart.org/content/ye-oldy-armored-knife-guy-animated
         
-        self.rightImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/YeOldyKnifeGuy0.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright1.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright2.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright3.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright4.png"), [25,25]),
-                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkright5.png"), [25,25])]
+        self.rightImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight0.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight1.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight2.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight3.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight4.png"), [25,25]),
+                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight5.png"), [25,25])]
+
+      
+        self.leftImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight0.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight1.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight2.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight3.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight4.png"), [25,25]),
+                           pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight5.png"), [25,25])]
+                           
+        self.attackImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+                             pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+                             pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+                            
         elif name == "blue":
             self.imageliving = pygame.image.load("Ghost/blue.png")
             self.imageliving = pygame.transform.scale(self.imageliving,[45,45])
