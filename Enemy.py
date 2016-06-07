@@ -26,23 +26,8 @@ class Enemy(pygame.sprite.Sprite):
                              pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
                              pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
                             
-        elif name == "blue":
-            self.imageliving = pygame.image.load("Ghost/blue.png")
-            self.imageliving = pygame.transform.scale(self.imageliving,[45,45])
-            self.maxSpeed = 4
-        elif name == "green":
-            self.imageliving = pygame.image.load("Ghost/green.png")
-            self.imageliving = pygame.transform.scale(self.imageliving,[45,45])
-            self.speed = [0,0]
-            self.maxSpeed = 3
-        else:
-            print "BAD NAME!!!!", name
-            sys.exit()
         
         self.startPos = pos
-        
-        self.imagedead = pygame.image.load("Ghost/dead ghost.png")
-        self.imagedead = pygame.transform.scale(self.imagedead,[45,45])
         
         self.image = self.imageliving
         self.rect = self.image.get_rect()
@@ -60,15 +45,6 @@ class Enemy(pygame.sprite.Sprite):
         self.didBounceY = False
         
         self.rect.center = pos
-        
-        self.energized = False
-        self.energizedtimer = 0
-        self.energizedtimerMax = 5* 60 
-        
-        self.deadtimer = 0 
-        self.deadtimerMax = 3*60
-        
-        self.value = 50
     
     def update(*args):
         self = args[0]
@@ -76,34 +52,9 @@ class Enemy(pygame.sprite.Sprite):
         self.move()
         self.collideScreen(size)
         
-        if self.energizedtimer > 0:
-            self.energizedtimer += 1
-            if self.energizedtimer > self.energizedtimerMax:
-                self.energizedtimer = 0
-                self.energized = False 
-                self.image = self.imageliving
-                
-        if self.deadtimer > 0:
-            self.deadtimer += 1
-            if self.deadtimer > self.deadtimerMax:
-                self.deadtimer = 0
-                self.respawn()
-             
-    def weaken(self):
-        self.energized = True
-        self.energizedtimer = 1
-        self.image = self.imagedead
-        
     def die(self):
         self.kill()
         self.deadtimer = 1
-        
-        
-    def respawn(self):
-        self.living = True
-        self.image = self.imageliving
-        self.rect.center = self.startPos
-        self.energized = False
     
     def move(self):
         if random.randint(0,90) == 0:
@@ -132,13 +83,8 @@ class Enemy(pygame.sprite.Sprite):
                 selfdidBounceY = True
                 self.move()
     
-    def collidePlayer(self, other):
-        if other.energized:
-            self.die()
-            return True
-        else:
-            return False
-                
+    #def collidePlayer(self, other):
+        
     def collideWall(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
