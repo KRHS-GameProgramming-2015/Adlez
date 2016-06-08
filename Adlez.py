@@ -1,6 +1,7 @@
 import sys, pygame, math, random, time
 from Level import *
 from Player import *
+from Enemy import *
 from NPC import *
 from Menu import *
 from Item import *

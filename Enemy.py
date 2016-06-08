@@ -22,9 +22,9 @@ class Enemy(pygame.sprite.Sprite):
                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight4.png"), [25,25]),
                            pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGRight5.png"), [25,25])]
                            
-        self.attackImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
-                             pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
-                             pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+        self.attackrImages = [pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+                              pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25]),
+                              pygame.transform.scale(pygame.image.load("Enemy/Enemy Images/KGAttackR0.png"), [25,25])]
                             
         
         self.startPos = pos
