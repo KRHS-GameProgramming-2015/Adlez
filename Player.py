@@ -25,6 +25,14 @@ class Player(pygame.sprite.Sprite):
         
         self.downImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/walkdown0.png"), [25,25]),
                            pygame.transform.scale(pygame.image.load("Player/Player Images/walkdown1.png"), [25,25])]
+                           
+        self.attackImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/AttackR0.png"), [25,25]),
+                             pygame.transform.scale(pygame.image.load("Player/Player Images/AttackR1.png"), [25,25]),
+                             pygame.transform.scale(pygame.image.load("Player/Player Images/AttackR2.png"), [25,25]),
+                             
+        self.attackImages = [pygame.transform.scale(pygame.image.load("Player/Player Images/AttackL0.png"), [25,25]), 
+                             pygame.transform.scale(pygame.image.load("Player/Player Images/AttackL1.png"), [25,25]),
+                             pygame.transform.scale(pygame.image.load("Player/Player Images/AttackL2.png"), [25,25]),
         
         self.images = self.rightImages
         self.frame = 0
