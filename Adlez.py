@@ -19,6 +19,7 @@ screen = pygame.display.set_mode(size)
 
 mode = "menu"
 
+enemy = pygame.sprite.Group()
 boundries = pygame.sprite.Group()
 backGrounds = pygame.sprite.Group()
 people = pygame.sprite.Group()
@@ -26,6 +27,7 @@ items = pygame.sprite.Group()
 players = pygame.sprite.Group()
 all = pygame.sprite.OrderedUpdates()
 
+Enemy.containers = (enemy, all)
 SoftBlock.containers = (backGrounds, all)
 HardBlock.containers = (boundries, all)
 NPC.containers = (people, all)
@@ -53,7 +55,7 @@ def loadNewLev(direction, levx, levy):
             levx+=1
     for s in all.sprites():
         s.kill()
-    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
+    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx)
     level=Level(levFile) 
     return levx, levy
 
@@ -103,7 +105,7 @@ while True:
                     sys.exit()
     
     
-    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx) + ".lvl"
+    levFile = "Levels/map" + str(levLayer) + str(levy) + str(levx)
     level=Level(levFile)
     player = Player([5,5], [900,500])
     

@@ -3,7 +3,7 @@ from NPC import *
 #From Manpac V2
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, maxSpeed, pos = [0,0]):
+    def __init__(self, images, maxSpeed, pos = [0,0]):
         pygame.sprite.Sprite.__init__(self, self.containers)
         #Images From: URL: http://opengameart.org/content/ye-oldy-armored-knife-guy-animated
         
@@ -29,7 +29,7 @@ class Enemy(pygame.sprite.Sprite):
         
         self.startPos = pos
         
-        self.image = self.imageliving
+        self.image = self.images[self.frame]
         self.rect = self.image.get_rect()
         
         self.speed = [0,0]

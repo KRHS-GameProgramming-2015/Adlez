@@ -8,6 +8,7 @@ from CaveWall import *
 from CaveFloor import *
 from HardBlock import *
 from SoftBlock import *
+from Enemy import *
 
 class Level():
     def __init__(self, lev, sizeX=0, sizeY=0, allLevels = False):
@@ -88,7 +89,7 @@ class Level():
         now = time.time() - self.start
         self.start = time.time()
         print "before start ", now
-        fileName = lev
+        fileName = lev+".lvl"
         print fileName
         
         self.blockSize = 25
@@ -147,7 +148,33 @@ class Level():
                     Rock([self.blockSize*x+self.blockSize/2,
                           self.blockSize*y+self.blockSize/2],
                           self.blockSize)
-                
+        
+        fileName = lev+".ene"
+        print fileName
+        
+        self.blockSize = 25
+        
+        file = open(fileName, 'r')
+        lines = file.readlines()
+        file.close()
+        
+        newlines = []
+        for line in lines:
+            newline = ""
+            for c in line:
+                if c != '\n':
+                    newline+= c
+            newlines += [newline]
+        lines = newlines
+
+        #for line in lines:
+            #print line
+            
+        for y, line in enumerate(lines):
+            for x, c in enumerate(line):
+                if c == 'K':
+                    Enemy([5,5], [200,200])
+                                  
         now = time.time() - self.start
         self.start = time.time()
         print "after start ", now
