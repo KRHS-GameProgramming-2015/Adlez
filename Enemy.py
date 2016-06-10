@@ -29,8 +29,21 @@ class Enemy(pygame.sprite.Sprite):
         
         self.startPos = pos
         
+        self.images = self.rightImages
+        self.frame = 0
+        self.maxFrame = len(self.images)-1
+        
         self.image = self.images[self.frame]
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect(center = pos)
+        
+        self.direction = "stop right"
+
+        self.speed = [0,0]
+        
+        self.maxSpeed = 3
+        
+        self.timer = 0
+        self.timerMax = .10* 60
         
         self.speed = [0,0]
         while self.speed == [0,0]:
