@@ -3,7 +3,7 @@ from NPC import *
 #From Manpac V2
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, images, maxSpeed, pos = [0,0]):
+    def __init__(self, images, maxSpeed, pos = [200,200]):
         pygame.sprite.Sprite.__init__(self, self.containers)
         #Images From: URL: http://opengameart.org/content/ye-oldy-armored-knife-guy-animated
         
@@ -63,7 +63,7 @@ class Enemy(pygame.sprite.Sprite):
         self = args[0]
         size = args[1]
         self.move()
-        self.collideScreen(size)
+        self.animate()
         
     def die(self):
         self.kill()
@@ -80,34 +80,36 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.rect.move(self.speed)
         self.didBounceX = False
         self.didBounceY = False
-        
-    def collideScreen(self, size):
-        width = size[0]
-        height = size[1]
-        
-        if not self.didBounceX:
-            if self.rect.left < 0 or self.rect.right > width:
-                self.speedx = -self.speedx
-                self.didBounceX = True
-                self.move()
-        if not self.didBounceY:
-            if self.rect.top < 0 or self.rect.bottom > height:
-                self.speedy = -self.speedy
-                selfdidBounceY = True
-                self.move()
     
     #def collidePlayer(self, other):
         
-    def collideWall(self, other):
+    def collideHardblock(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 self.speedx = -self.speedx
                 self.speedy = -self.speedy
                 self.move()
-                self.speed = [0,0]
-                while self.speed == [0,0]:
-                    self.speedx = self.maxSpeed * random.randint(-1,1)
-                    self.speedy = self.maxSpeed * random.randint(-1,1)
-                    self.speed = [self.speedx, self.speedy]
-                return True
-        return False
+                self.speedx = 0
+                self.speedy = 0
+                
+    def animate(self):
+        if self.direction[0:4] == "stop":
+            self.frame = 0
+        elif self.timer < self.timerMax:
+            self.timer += 1
+        else:
+            self.timer = 0
+            #print self.frame, self.maxFrame
+            if self.frame < self.maxFrame:
+                self.frame += 1
+            else:
+                self.frame = 0
+        self.image = self.images[self.frame]
+                
+    def distanceTo(self, pt):
+        x1 = self.rect.center[0]
+        y1 = self.rect.center[1]
+        x2 = pt[0]
+        y2 = pt[1]
+        return math.sqrt((x1-x2)**2+(y1-y2)**2)
+        

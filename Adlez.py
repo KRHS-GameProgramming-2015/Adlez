@@ -19,7 +19,7 @@ screen = pygame.display.set_mode(size)
 
 mode = "menu"
 
-enemy = pygame.sprite.Group()
+enemies = pygame.sprite.Group()
 boundries = pygame.sprite.Group()
 backGrounds = pygame.sprite.Group()
 people = pygame.sprite.Group()
@@ -27,7 +27,7 @@ items = pygame.sprite.Group()
 players = pygame.sprite.Group()
 all = pygame.sprite.OrderedUpdates()
 
-Enemy.containers = (enemy, all)
+Enemy.containers = (enemies, all)
 SoftBlock.containers = (backGrounds, all)
 HardBlock.containers = (boundries, all)
 NPC.containers = (people, all)
@@ -188,6 +188,12 @@ while True:
         
         #for p in playersHitsitems:
             #for item in playersHitsitems[p]:
+
+        enemiesHitsBoundries = pygame.sprite.groupcollide(enemies, boundries, False, False)
+        
+        for e in enemiesHitsBoundries:
+            for boundry in enemiesHitsBoundries[e]:
+                e.collideHardblock(boundry)
                 
         bgColor = r,g,b
         screen.fill(bgColor)
